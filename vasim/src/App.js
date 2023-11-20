@@ -1,27 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import User from './User';
+import ProductsComponent from './Products';
+//import UsersList from './UsersList';
+//import TodoApp from './todo/TodoApp';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './Navbar';
+import Employees from './Employees';
+import Product from './Product';
 
 function App() {
-  const user = {
-    id:1,
-    firstName:'vasim',
-    lastName:'kureshi'
-  }
-  const getSearchQuery =(event)=>{
-    console.log(event.target.value);
-  }
   
-
   return (
     <div className="App">
-      <h2>Id:{user.id}</h2>
-      <h2>firstName:{user.firstName}</h2>
-      <h2>lastName:{user.lastName}</h2>
+      {/* <ProductsComponent/> */}
       
-      <input placeholder='Enter search query...' onChange={($event)=>getSearchQuery($event)}>
-        </input>
-     </div>   
-
+      <Navbar/>
+      <Routes>
+        <Route path="/employees" element={<Employees/>}></Route>
+        <Route path="/product/:productName" element={<Product/>}></Route>
+        <Route path="/" element={<ProductsComponent/>}></Route>
+      </Routes>
+    </div>
   );
 }
 
